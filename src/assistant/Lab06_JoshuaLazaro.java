@@ -7,12 +7,30 @@ public class Lab06_JoshuaLazaro {
 	public static void main(String[] args) {
 		int[] arr = {0, 1, 2, 3, 4, 5};
 		
+		System.out.println("PERMUTE BY SORTING");
 		permuteBySorting(arr);
-		
+		System.out.println("\n\nRANDOMIZE IN PLACE");
+		randomizeInPlace(arr);
 		
 	}
 	
-	public static void printArr(int[] arrA, int[] arrP){
+	public static void randomizeInPlace(int[] arr){
+		for(int i = 0; i < arr.length; i++){
+			int temp = arr[i];
+			int random = (int) (Math.random() * (arr.length - i) + i);
+			arr[i] = arr[random];
+			arr[random] = temp;
+		}
+		printRandom(arr);
+	}
+	
+	public static void printRandom(int[] arr){
+		for(int element : arr){
+			System.out.print(element + " ");
+		}
+	}
+	
+	public static void printPermute(int[] arrA, int[] arrP){
 		System.out.print("Actual Values:\t\t");
 		for(int element : arrA){
 			System.out.print(element + " ");
@@ -34,7 +52,7 @@ public class Lab06_JoshuaLazaro {
 		
 		sort(arr, newList, 0, arr.length - 1);
 		
-		printArr(arr, newList);
+		printPermute(arr, newList);
 		
 		return arr;
 	}
